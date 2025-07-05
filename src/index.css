@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Comic+Relief:wght@400;700&family=Karla:ital,wght@0,200..800;1,200..800&family=Outfit:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+@import "tailwindcss";
+
+/* 1. #32231F
+2. #B4D277
+3. #DD9BF7
+4. #E47D06
+5. #61ACEF
+6. #B3E35A  */
+
+
+@theme {
+  --font-comic1:'Comic Neue', 'sans-serif';
+  --font-comic2:'Comic Relief', 'sans-serif';
+  --font-kara:'Karla', 'sans-serif';
+  --font-outfit:'Outfit', 'sans-serif';
+  --font-roboto:'Roboto', 'sans-serif';
+  --font-work:'Work Sans', 'sans-serif';
+}
+
+body {
+  @apply bg-[#E0D2B9];
+    overflow-x: hidden;
+
+}
+/* F8F8F6 */
+.bg-hero {
+  background-image: url('./assets/mobile-banner.png');
+}
+
+@media (min-width: 640px) {
+  .bg-hero {
+    background-image: url('./assets/banner.png');
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+#btn-mini {
+  display: inline-block;
+  background-color: #4A773C;
+  padding: 10px;
+  box-shadow: 5px 8px 4px #375230;
+  border-radius: 24px; 
+}
+
+#btn-mini:hover {
+  background-color: #2c3e20; /* slightly darker green on hover */
+  box-shadow: 5px 8px 4px #4A773C; /* optional: deeper shadow */
+}
+
+#logo {
+  display: inline-block;
+  background-color: #4A773C;
+  padding: 14px;
+  box-shadow: 5px 8px 4px #375230;
+  border-radius: 32px; 
+}
+
+#logo:hover {
+  background-color: #2c3e20; /* slightly darker green on hover */
+  box-shadow: 5px 8px 4px #4A773C; /* optional: deeper shadow */
+}
+
+#drop-down {
+  display: inline-block;
+  background-color: #4A773C;
+  padding: 8px;
+  box-shadow: 5px 8px 4px #375230;
+  border-radius: 24px; 
+}
+
+#card {
+  display: inline-block;
+  background-color: #88a985;
+  padding: 14px;
+  box-shadow: 5px 8px 4px #375230;
+  border-radius: 32px; 
+}
+
+#btn-km {
+  display: inline-block;
+  background-color: #4A773C;
+  padding: 10px;
+  box-shadow: 1px 6px 4px #375230;
+  border-radius: 24px; 
+}
+/* index.css or App.css */
+.custom-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+.custom-scroll::-webkit-scrollbar-track {
+  background: #e0e0e0;
+  border-radius: 8px;
+}
+.custom-scroll::-webkit-scrollbar-thumb {
+  background-color: #4A773C; /* Tailwind's gray-400 */
+  border-radius: 8px;
+}
