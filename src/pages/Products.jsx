@@ -58,17 +58,17 @@ const Products = () => {
     const handleClose = () => setSelectedProduct(null);
 
   return (
-    <section className="flex flex-col min-h-screen  px-6  mt-10 2xl:mt-20 font-outfit" id="products">
+    <section className="flex flex-col min-h-screen px-6  mt-10 2xl:mt-20 font-outfit" id="products">
       <h2 className="text-4xl font-bold text-center text-[#4A773C] mb-12">
         Our Delicious Fox nut Flavors
       </h2>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 max-w-7xl mx-auto">
+      <div className=" grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-20 max-w-7xl ml-4 2xl:mx-auto 2xl:gap-40">
         {products.map((product) => (
         <div
         key={product.id}
         id="card"
-        className="rounded-2xl  shadow-md hover:shadow-lg transition duration-300 overflow-hidden h-120"
+        className="rounded-2xl w-80 shadow-md hover:shadow-lg transition duration-300 overflow-hidden h-120"
         >
         <div
             className="h-full w-full p-3 rounded-2xl"
@@ -95,12 +95,12 @@ const Products = () => {
       </div>
     {/* Overlay product */}
         {selectedProduct && (
-            <div
-    className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center"
+  <div
+    className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[1001] flex items-center justify-center"
     onClick={handleClose} // <- backdrop click
   >
     <div
-      className="bg-[#E0D2B9] rounded-2xl shadow-lg p-4 w-10/12 h-11/12 md:w-11/12 md:h-11/12 relative"
+      className="bg-[#E0D2B9] rounded-2xl shadow-lg p-4 w-10/12 relative"
       onClick={(e) => e.stopPropagation()} // <- prevent close when clicking inside modal
     >
                 <button
@@ -113,32 +113,29 @@ const Products = () => {
                 <h3 className="text-2xl font-bold text-[#4A773C] text-center mt-2">
                 {selectedProduct.name}
                 </h3>
-                <div className='flex flex-row justify-center items-center'>
+               
+               <div className="flex flex-row max-h-48 overflow-y-auto custom-scroll">
+                <div>
                     <img
                     src={selectedProduct.image}
                     alt={selectedProduct.name}
                     className=" w-40 md:w-120 h-auto mx-auto"
-                    /><img
-                    src={selectedProduct.image}
-                    alt={selectedProduct.name}
-                    className="w-40 md:w-120 h-auto mx-auto "
                     />
-                    <div className='w-1/3 flex flex-col justify-center items-center'>
-                        <p className="text-gray-700 text-center mb-2">{selectedProduct.description}</p>
-                        <p className="text-gray-700 text-center mb-2">Calories: {selectedProduct.calories}</p>
-                        <p className="text-gray-700 text-center mb-2">Protien: {selectedProduct.protein}</p>
-                        <p className="text-gray-700 text-center mb-2">fat: {selectedProduct.fat}</p>
-                        <p className="text-gray-700 text-center mb-2">Calories: {selectedProduct.calories}</p>
-                        <p className="text-gray-700 text-center mb-2">Protien: {selectedProduct.protein}</p>
-                        <p className="text-gray-700 text-center mb-2">fat: {selectedProduct.fat}</p>
-                         { selectedProduct?.carbs && <p className="text-gray-700 text-center mb-2">carbs: {selectedProduct?.carbs}</p>}
-                    </div>
                 </div>
-                
-               <div className="max-h-48 overflow-y-auto custom-scroll">
-                <p className="text-gray-700 text-center ">
+                <div>
+                  <p className="text-gray-700 text-center ">
                     {selectedProduct.details}
                 </p>
+                </div>
+                </div>
+                <div className="flex justify-center mt-4">
+                    <a href={'/blogs'} rel="noopener noreferrer">
+                    <button
+                        className="bg-[#4A773C] text-white px-6 py-2 rounded-full text-sm hover:bg-[#3e6433] transition hover:scale-110 hover:cursor-pointer"
+                    >
+                        More about this product
+                    </button>
+                    </a>
                 </div>
             </div>
             </div>

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Comic+Relief:wght@400;700&family=Karla:ital,wght@0,200..800;1,200..800&family=Outfit:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
 @import "tailwindcss";
 
 /* 1. #32231F
@@ -10,14 +10,10 @@
 
 
 @theme {
-  --font-comic1:'Comic Neue', 'sans-serif';
-  --font-comic2:'Comic Relief', 'sans-serif';
-  --font-kara:'Karla', 'sans-serif';
-  --font-outfit:'Outfit', 'sans-serif';
-  --font-roboto:'Roboto', 'sans-serif';
-  --font-work:'Work Sans', 'sans-serif';
+  --font-lato:'Lato', 'sans-serif';
+  
 }
-
+/* bg-[#E0D2B9] */
 body {
   @apply bg-[#E0D2B9];
     overflow-x: hidden;
@@ -74,8 +70,15 @@ html {
 
 #card {
   display: inline-block;
-  background-color: #88a985;
+  background-color: #e4dcc6;
   padding: 14px;
+  box-shadow: 1px 4px 2px #375230;
+  border-radius: 32px; 
+}
+#blog {
+  display: inline-block;
+  background-color: #88a985;
+  
   box-shadow: 5px 8px 4px #375230;
   border-radius: 32px; 
 }
@@ -84,6 +87,13 @@ html {
   display: inline-block;
   background-color: #4A773C;
   padding: 10px;
+  box-shadow: px px 4px #375230;
+  border-radius: 24px; 
+}
+#btn-rm{
+  display: inline-block;
+  background-color: #4A773C;
+  padding: 6px;
   box-shadow: 1px 6px 4px #375230;
   border-radius: 24px; 
 }

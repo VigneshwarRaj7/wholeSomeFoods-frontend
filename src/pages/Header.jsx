@@ -1,66 +1,73 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import headerImg from '../assets/banner.png'
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
-    <header className="sticky z-50 top-0 text-[#4A773C]  px-6 py-4 font-kara">
-      <div className=" max-w-7xl mx-auto flex items-center justify-between">
+    <header className=" top-0 z-50 bg-[#4A773C]  py-10 font-lato  ">
+      <div className="max-w-7xl mx-auto flex items-center justify-between">
+          <Link to="/" className="text-2xl font-bold text-white hover:opacity-80 transition">
+            FoxNutSnacks
+          </Link>
+          <nav className="hidden md:flex items-center space-x-6 text-base">
+            <Link to="/products" className="text-white hover:text-green-950">Contact Us</Link>
+            {/* Dropdown */}
+            <div className="relative group z-[1000]">
+              <span className="cursor-pointer text-white hover:text-green-950">About us ▾</span>
 
-        {/* Logo */}
-        <Link to="/" id="logo" className="text-md text-white font-bold hover:scale-110 bg-[#4A773C] px-4  rounded-full shadow-lg transition">
-          FoxNutSnacks
-        </Link>
-
-        {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center mt-3 gap-8 font-bold text-sm">
-         <div className="relative group cursor-pointer">
-            <span id="btn-mini" className="text-white bg-[#4A773C] px-3 py-2 rounded-md shadow transition hover:scale-110">
-              About us ▾
-            </span>
-
-            {/* Dropdown Content */}
-            <div id='drop-down' className="absolute top-full left-0 bg-[#4A773C] shadow-3xl rounded-lg mt-2 opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-200 min-w-[180px] z-20 text-white">
-              <Link to="/ourValues" className="block px-4 py-2 hover:bg-[#2c3e20] hover:rounded-t-2xl text-sm">Our Values</Link>
-              <Link to="/mediaSpotlight" className="block px-4 py-2 hover:bg-[#2c3e20] text-sm">Media Spotlight</Link>
-              <Link to="/testimonials" className="block px-4 py-2 hover:bg-[#2c3e20] hover:rounded-b-2xl text-sm">Testimonials</Link>
+              <div className="absolute top-full left-0 mt-2 w-40 bg-[#4A773C] rounded-md shadow-2xl shadow-green-950 opacity-0 group-hover:opacity-100 transition duration-200 z-[1000]">
+                <Link to="/ourValues" className="block px-4 py-2 text-white hover:bg-green-950 hover:rounded-t-md">Our Values</Link>
+                <Link to="/mediaSpotlight" className="block px-4 py-2 text-white hover:bg-green-950">Media Spotlight</Link>
+                <Link to="/testimonials" className="block px-4 py-2 text-white hover:bg-green-950 hover:rounded-b-md">Testimonials</Link>
+              </div>
             </div>
-          </div>
-          <a href="/products" id="btn-mini" className="text-white transition hover:scale-110 bg-[#4A773C] px-3 py-2 rounded-md shadow">
-            Products
-          </a>
-          <a href="/products" id="btn-mini" className="text-white transition hover:scale-110 bg-[#4A773C] px-3 py-2 rounded-md shadow">
-            FAQs
-          </a>
-          <a href="/products" id="btn-mini" className="text-white transition hover:scale-110 bg-[#4A773C] px-3 py-2 rounded-md shadow">
-            Blogs
-          </a>
-        </nav>
+            <div className="relative group z-[1000]">
+              <span className="cursor-pointer text-white hover:text-green-950">Products ▾</span>
 
-        {/* Hamburger Icon (mobile only) */}
-        <div className="md:hidden">
-          <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="text-[#4A773C] focus:outline-none text-3xl"
-          >
-            ☰
-          </button>
-        </div>
+              <div className="absolute top-full left-0 mt-2 mr-100 w-140 bg-[#4A773C] rounded-md shadow-2xl shadow-green-950 opacity-0 group-hover:opacity-100 transition duration-200 z-[1000]">
+                <img src={headerImg}></img>
+              </div>
+            </div>
+            
+            <Link to="/blogs" className="text-white hover:text-green-950">Blogs</Link>
+            <Link to="/faqs" className="text-white hover:text-green-950">FAQs</Link>
+          </nav>
+          
+          
+         {/* Mobile hamburger... */}
       </div>
+      <div className='flex flex-row hidden'>
+            <div className='w-1/4 '> 
+                    <div className='flex flex-col'>
+                          <Link to="/blogs" className="text-white hover:text-green-950">periperi</Link>
+                          <Link to="/faqs" className="text-white hover:text-green-950">himalayan salt</Link>
+                    </div>
+            </div>
+            <div
+                className="w-3/4 h-[400px] bg-cover bg-center"
+                style={{ backgroundImage: `url(${headerImg})` }}
+            ></div>
 
+      </div>
+    
       {/* Mobile Dropdown */}
       {isMobileMenuOpen && (
         <div className="md:hidden mt-4 flex flex-col gap-4 bg-[#4A773C] text-white px-6 py-4 rounded-lg shadow">
-          <a href="#products" className="hover:underline">Range of Products</a>
-          <details className="group">
-            <summary className="cursor-pointer">Who Are We </summary>
+           <a href="/products" className="hover:underline">Contact Us</a>
+           <details className="group">
+            <summary className="cursor-pointer">About us</summary>
             <div className="pl-4 mt-2 flex flex-col gap-2 text-sm">
               <Link to="/ourValues" className="hover:underline">Our Values</Link>
               <Link to="/mediaSpotlight" className="hover:underline">Media Spotlight</Link>
               <Link to="/testimonials" className="hover:underline">Testimonials</Link>
             </div>
           </details>
+          <a href="/products" className="hover:underline">Products</a>
+          <a href="/blogs" className="hover:underline">Blogs</a>   
+          <a href="/products" className="hover:underline">FAQs</a>
+         
         </div>
       )}
     </header>
